@@ -67,14 +67,14 @@ workbox.routing.registerRoute(
 );
 
 // 缓存post api请求的数据
-// const bgSyncPlugin = new workbox.backgroundSync.Plugin('apiQueue', {
-//   maxRetentionTime: 1 * 60
-// });
+const bgSyncPlugin = new workbox.backgroundSync.Plugin('apiQueue', {
+  maxRetentionTime: 1 * 60
+});
 
-// workbox.routing.registerRoute(
-//   /.*\/api\/.*/,
-//   new workbox.strategies.NetworkOnly({
-//     plugins: [bgSyncPlugin]
-//   }),
-//   'POST'
-// );
+workbox.routing.registerRoute(
+    /.*/,
+  new workbox.strategies.NetworkOnly({
+    plugins: [bgSyncPlugin]
+  }),
+  'POST'
+);
