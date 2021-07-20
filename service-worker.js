@@ -1,6 +1,6 @@
 importScripts("/pwa-1/precache-manifest.80060960360ef482a5c3b70ccff2a30f.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
-importScripts('your/path/to/dexie/dist/dexie.min.js');
+importScripts('https://unpkg.com/dexie/dist/dexie.js');
 // 设置相应缓存的名字的前缀和后缀
 workbox.core.setCacheNameDetails({
     prefix: 'pdf-image-vue-cache',
