@@ -1,6 +1,6 @@
 self.__precacheManifest = [
   {
-    "revision": "5bf7a6316e59b74e03b43dbc5aa484c1",
+    "revision": "af6c84d66c83515fdfed5ae9e634ff70",
     "url": "/pwa-1/index.html"
   },
   {
@@ -16,14 +16,6 @@ self.__precacheManifest = [
     "url": "/pwa-1/js/chunk-vendors.2398fe03.js"
   },
   {
-    "revision": "544f8100f220ecc77f53845323e63d44",
-    "url": "/pwa-1/manifest.json"
-  },
-  {
-    "revision": "b89032a4a5a1879f30ba05a13947f26f",
-    "url": "/pwa-1/img/icons/msapplication-icon-144x144.png"
-  },
-  {
     "revision": "735ab4f94fbcd57074377afca324c813",
     "url": "/pwa-1/robots.txt"
   },
@@ -32,12 +24,20 @@ self.__precacheManifest = [
     "url": "/pwa-1/img/icons/mstile-150x150.png"
   },
   {
-    "revision": "3ed9ae126bc8e67a4dbd",
-    "url": "/pwa-1/js/app.e3fce048.js"
+    "revision": "544f8100f220ecc77f53845323e63d44",
+    "url": "/pwa-1/manifest.json"
   },
   {
-    "revision": "c9ffbd3c127fc4e2273d3302cd40ba6b",
-    "url": "/pwa-1/img/64253519_p9.c9ffbd3c.png"
+    "revision": "b89032a4a5a1879f30ba05a13947f26f",
+    "url": "/pwa-1/img/icons/msapplication-icon-144x144.png"
+  },
+  {
+    "revision": "f3e82d8fc43c60a972f7",
+    "url": "/pwa-1/js/app.db275f13.js"
+  },
+  {
+    "revision": "c53a6bd35c13f5f094e41804d6814143",
+    "url": "/pwa-1/fonts/BPtypewrite.c53a6bd3.ttf"
   },
   {
     "revision": "c0a0d9f6bc44382a648631979c8e0464",
@@ -48,12 +48,16 @@ self.__precacheManifest = [
     "url": "/pwa-1/img/icons/fuji-mountain-128x128.png"
   },
   {
+    "revision": "0a5afac7cb039c2cc0552c44ab6077f4",
+    "url": "/pwa-1/img/icons/fuji-mountain-16x16.png"
+  },
+  {
     "revision": "e7b06aca80396527699c7da03f378815",
     "url": "/pwa-1/img/icons/fuji-mountain-32x32.png"
   },
   {
-    "revision": "0a5afac7cb039c2cc0552c44ab6077f4",
-    "url": "/pwa-1/img/icons/fuji-mountain-16x16.png"
+    "revision": "c9ffbd3c127fc4e2273d3302cd40ba6b",
+    "url": "/pwa-1/img/64253519_p9.c9ffbd3c.png"
   },
   {
     "revision": "732389ded34cb9c52dd88271f1345af9",
@@ -68,10 +72,6 @@ self.__precacheManifest = [
     "url": "/pwa-1/fonts/XANO-mincho-U32.b5470313.ttf"
   },
   {
-    "revision": "c53a6bd35c13f5f094e41804d6814143",
-    "url": "/pwa-1/fonts/BPtypewrite.c53a6bd3.ttf"
-  },
-  {
     "revision": "2da0df715c3c27d154b3d7b0eea6ca59",
     "url": "/pwa-1/favicon.ico"
   },
@@ -80,7 +80,7 @@ self.__precacheManifest = [
     "url": "/pwa-1/css/chunk-vendors.e3e9338f.css"
   },
   {
-    "revision": "3ed9ae126bc8e67a4dbd",
+    "revision": "f3e82d8fc43c60a972f7",
     "url": "/pwa-1/css/app.b820f1b6.css"
   }
 ];
