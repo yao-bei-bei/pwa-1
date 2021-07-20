@@ -11,11 +11,11 @@
  * See https://goo.gl/2aRDsh
  */
 
-importScripts("/pwa-web/workbox-v3.6.3/workbox-sw.js");
-workbox.setConfig({modulePathPrefix: "/pwa-web/workbox-v3.6.3"});
+importScripts("/pwa-1/workbox-v3.6.3/workbox-sw.js");
+workbox.setConfig({modulePathPrefix: "/pwa-1/workbox-v3.6.3"});
 
 importScripts(
-  "/pwa-web/precache-manifest.b4fa9dcd7678d783306b2e93eab2bdbe.js"
+  "/pwa-1/precache-manifest.6129fae4b3528cf519b164f89cee8406.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "nippon-color"});
