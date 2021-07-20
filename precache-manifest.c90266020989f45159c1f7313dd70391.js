@@ -1,6 +1,6 @@
 self.__precacheManifest = [
   {
-    "revision": "af6c84d66c83515fdfed5ae9e634ff70",
+    "revision": "59e448bca65d86d19082bffe8677b810",
     "url": "/pwa-1/index.html"
   },
   {
@@ -20,24 +20,24 @@ self.__precacheManifest = [
     "url": "/pwa-1/robots.txt"
   },
   {
-    "revision": "058a3335d15a3eb84e7ae3707ba09620",
-    "url": "/pwa-1/img/icons/mstile-150x150.png"
-  },
-  {
     "revision": "544f8100f220ecc77f53845323e63d44",
     "url": "/pwa-1/manifest.json"
+  },
+  {
+    "revision": "058a3335d15a3eb84e7ae3707ba09620",
+    "url": "/pwa-1/img/icons/mstile-150x150.png"
   },
   {
     "revision": "b89032a4a5a1879f30ba05a13947f26f",
     "url": "/pwa-1/img/icons/msapplication-icon-144x144.png"
   },
   {
-    "revision": "f3e82d8fc43c60a972f7",
-    "url": "/pwa-1/js/app.db275f13.js"
+    "revision": "756ffc63073c7306e751",
+    "url": "/pwa-1/js/app.22b7d72a.js"
   },
   {
-    "revision": "c53a6bd35c13f5f094e41804d6814143",
-    "url": "/pwa-1/fonts/BPtypewrite.c53a6bd3.ttf"
+    "revision": "0a5afac7cb039c2cc0552c44ab6077f4",
+    "url": "/pwa-1/img/icons/fuji-mountain-16x16.png"
   },
   {
     "revision": "c0a0d9f6bc44382a648631979c8e0464",
@@ -46,10 +46,6 @@ self.__precacheManifest = [
   {
     "revision": "a68050aa316a9a78856cbd1ac8dafa10",
     "url": "/pwa-1/img/icons/fuji-mountain-128x128.png"
-  },
-  {
-    "revision": "0a5afac7cb039c2cc0552c44ab6077f4",
-    "url": "/pwa-1/img/icons/fuji-mountain-16x16.png"
   },
   {
     "revision": "e7b06aca80396527699c7da03f378815",
@@ -72,6 +68,10 @@ self.__precacheManifest = [
     "url": "/pwa-1/fonts/XANO-mincho-U32.b5470313.ttf"
   },
   {
+    "revision": "c53a6bd35c13f5f094e41804d6814143",
+    "url": "/pwa-1/fonts/BPtypewrite.c53a6bd3.ttf"
+  },
+  {
     "revision": "2da0df715c3c27d154b3d7b0eea6ca59",
     "url": "/pwa-1/favicon.ico"
   },
@@ -80,7 +80,7 @@ self.__precacheManifest = [
     "url": "/pwa-1/css/chunk-vendors.e3e9338f.css"
   },
   {
-    "revision": "f3e82d8fc43c60a972f7",
+    "revision": "756ffc63073c7306e751",
     "url": "/pwa-1/css/app.b820f1b6.css"
   }
 ];
