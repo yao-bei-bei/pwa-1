@@ -1,41 +1,88 @@
-/**
- * Welcome to your Workbox-powered service worker!
- *
- * You'll need to register this file in your web app and you should
- * disable HTTP caching for this file too.
- * See https://goo.gl/nhQhGp
- *
- * The rest of the code is auto-generated. Please don't update this file
- * directly; instead, make changes to your Workbox build configuration
- * and re-run your build process.
- * See https://goo.gl/2aRDsh
- */
+importScripts("/pwa-1/precache-manifest.80060960360ef482a5c3b70ccff2a30f.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
-importScripts("/pwa-1/workbox-v3.6.3/workbox-sw.js");
-workbox.setConfig({modulePathPrefix: "/pwa-1/workbox-v3.6.3"});
+// 设置相应缓存的名字的前缀和后缀
+workbox.core.setCacheNameDetails({
+    prefix: 'pdf-image-vue-cache',
+    suffix: 'v1.0.0',
+})
+// 让我们的service worker尽快的得到更新和获取页面的控制权
+workbox.core.skipWaiting();
+workbox.core.clientsClaim();
 
-importScripts(
-  "/pwa-1/precache-manifest.c90266020989f45159c1f7313dd70391.js"
+/* vue-cli3.0通过workbox-webpack-plagin 来实现相关功能，我们需要加入
+* 以下语句来获取预缓存列表和预缓存他们，也就是打包项目后生产的html，js，css等\* 静态文件
+*/
+workbox.precaching.precacheAndRoute(self.__precacheManifest || []);
+// 缓存web的css资源
+workbox.routing.registerRoute(
+    // Cache CSS files
+    /.*\.css/,
+    // 使用缓存，但尽快在后台更新
+    workbox.strategies.staleWhileRevalidate({
+        // 使用自定义缓存名称
+        cacheName: 'css-cache'
+    })
 );
 
-workbox.core.setCacheNameDetails({prefix: "nippon-color"});
+// 缓存web的js资源
+workbox.routing.registerRoute(
+    // 缓存JS文件
+    /.*\.js/,
+    // 使用缓存，但尽快在后台更新
+    workbox.strategies.staleWhileRevalidate({
+        // 使用自定义缓存名称
+        cacheName: 'js-cache'
+    })
+);
 
-workbox.skipWaiting();
-workbox.clientsClaim();
+// 缓存web的图片资源
+workbox.routing.registerRoute(
+    /\.(?:png|gif|jpg|jpeg|svg)$/,
+    workbox.strategies.staleWhileRevalidate({
+        cacheName: 'images',
+        plugins: [
+            new workbox.expiration.Plugin({
+                maxEntries: 60,
+                maxAgeSeconds: 1 * 24 * 60 * 60 // 设置缓存有效期为30天
+            })
+        ]
+    })
+);
 
-/**
- * The workboxSW.precacheAndRoute() method efficiently caches and responds to
- * requests for URLs in the manifest.
- * See https://goo.gl/S9QRab
- */
-self.__precacheManifest = [].concat(self.__precacheManifest || []);
-workbox.precaching.suppressWarnings();
-workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
+// 我们很多资源在其他域名上，比如cdn、oss等，这里做单独处理，需要支持跨域
+workbox.routing.registerRoute(
+    /^https:\/\/cdn\.my\.com\/.*\.(jpe?g|png|gif|svg)/,
+    workbox.strategies.staleWhileRevalidate({
+        cacheName: 'cdn-images',
+        plugins: [
+            new workbox.expiration.Plugin({
+                maxEntries: 60,
+                maxAgeSeconds: 1 * 24 * 60 * 60 // 设置缓存有效期为5天
+            })
+        ],
+        fetchOptions: {
+            credentials: 'include' // 支持跨域
+        }
+    })
+);
 
-workbox.routing.registerNavigationRoute("undefined/index.html", {
-  
-  blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
-});
+// 缓存get api请求的数据
+workbox.routing.registerRoute(
+    new RegExp(/.*/),
+    workbox.strategies.networkFirst({
+        cacheName: 'api'
+    })
+);
 
-workbox.routing.registerRoute(/.*\.js/, workbox.strategies.networkFirst({ "cacheName":"my-js-cache","matchOptions":{"ignoreSearch":true}, plugins: [{ cacheWillUpdate: () => { console.log(`%c js cacheWillUpdate`, `color:#006DCB;`); }, cacheDidUpdate: () => { console.log(`%c js cache update`, `color:#006DCB;`); }, cachedResponseWillBeUsed: () => { console.log(`%c js cachedResponseWillBeUsed`, `color:#006DCB;`); }, requestWillFetch: () => { console.log(`%c js cache requestWillFetch`, `color:#006DCB;`); }, fetchDidFail: () => { console.log(`%c js cache fetchDidFail`, `color:red;`); } }, new workbox.expiration.Plugin({"maxEntries":5,"maxAgeSeconds":60,"purgeOnQuotaError":false}), new workbox.backgroundSync.Plugin("my-jsqueue-name", {"maxRetentionTime":3600}), new workbox.broadcastUpdate.Plugin("my-jsupdate-channel"), new workbox.cacheableResponse.Plugin({"statuses":[200]})] }), 'GET');
-workbox.routing.registerRoute(/.*/, workbox.strategies.networkFirst({ "cacheName":"my-api-cache","matchOptions":{"ignoreSearch":true}, plugins: [{ cacheDidUpdate: () => { console.log(`%c api cache update`, `color:#006DCB;`); } }, new workbox.expiration.Plugin({"maxEntries":5,"maxAgeSeconds":60,"purgeOnQuotaError":false}), new workbox.backgroundSync.Plugin("my-queue-name", {"maxRetentionTime":3600}), new workbox.cacheableResponse.Plugin({"statuses":[200]})] }), 'GET');
+// 缓存post api请求的数据
+// const bgSyncPlugin = new workbox.backgroundSync.Plugin('apiQueue', {
+//   maxRetentionTime: 1 * 60
+// });
+
+// workbox.routing.registerRoute(
+//   /.*\/api\/.*/,
+//   new workbox.strategies.NetworkOnly({
+//     plugins: [bgSyncPlugin]
+//   }),
+//   'POST'
+// );
