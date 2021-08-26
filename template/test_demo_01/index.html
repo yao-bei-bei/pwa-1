@@ -7,8 +7,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <link rel="icon" href="../../manifest/test_demo_01/favicon.ico">
-  <link rel="manifest" href="../../manifest/test_demo_01/manifest.json">
+  <link rel="icon" href="manifest/test_demo_01/favicon.ico">
+  <link rel="manifest" href="manifest/test_demo_01/manifest.json">
   <title>商店详情</title>
 <link href="../../css/test_demo_01.3fe51d8b.css" rel="preload" as="style"><link href="../../js/chunk-vendors.ecd76ec1.js" rel="preload" as="script"><link href="../../js/test_demo_01.e83ec583.js" rel="preload" as="script"><link href="../../css/test_demo_01.3fe51d8b.css" rel="stylesheet"></head>
 
@@ -28,7 +28,7 @@
   if (navigator.serviceWorker) {
     // 注册Service Worker scope表示作用的页面的path
     // register函数返回Promise
-    navigator.serviceWorker.register('../../manifest/service-worker.js')
+    navigator.serviceWorker.register('./service-worker.js')
       .then(function (registration) {
         console.log(registration);
       })
